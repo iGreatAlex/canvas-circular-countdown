@@ -47,7 +47,7 @@
 
   setFormDefaults(countdown.options);
 
-  const duration = Number(form.duration.value) * 1000;
+  const duration = Number(form.duration.value) ;
   const elapsed = Number(form.elapsedTime.value);
   const percentage = normalise(duration - elapsed, 0, duration) * 100 || 0;
 
@@ -103,7 +103,7 @@
     countdown.reset();
 
     countdown = new CanvasCircularCountdown(countdownCanvas, {
-      duration: Number(form.duration.value)* 1000 || 0,
+      duration: Number(form.duration.value) * 1000 * 60 || 0,
       elapsedTime: Number(form.elapsedTime.value) || 0,
       throttle: form.throttle.value ? Number(form.throttle.value) : void 0,
       captionText: void 0
@@ -111,7 +111,7 @@
 
     setFormDefaults(countdown.options);
 
-    const duration = Number(form.duration.value) * 1000;
+    const duration = Number(form.duration.value);
     const elapsed = Number(form.elapsedTime.value);
     const percentage = normalise(duration - elapsed, 0, duration) * 100 || 0;
 
