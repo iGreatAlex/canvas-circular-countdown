@@ -67,7 +67,7 @@
   resetBtn.addEventListener('click', function onResetClicked() {
     countdown.reset();
 
-    const duration = Number(form.duration.value) * 1000;
+    const duration = Number(form.duration.value);
     const elapsed = Number(form.elapsedTime.value);
     const percentage = normalise(duration - elapsed, 0, duration) * 100 || 0;
 
