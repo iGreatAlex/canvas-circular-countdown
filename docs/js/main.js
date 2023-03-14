@@ -45,7 +45,7 @@
 
   countdown = new CanvasCircularCountdown(countdownCanvas, updateOnTimer);
 
-  setFormDefaults(countdown.options);
+  //setFormDefaults(countdown.options);
 
   const duration = Number(form.duration.value) ;
   const elapsed = Number(form.elapsedTime.value);
@@ -101,17 +101,17 @@
 
   newInstanceButton.addEventListener('click', function onNewInstanceCreated() {
     countdown.reset();
-
+    const _duration = Number(form.duration.value) * 1000 * 60;
     countdown = new CanvasCircularCountdown(countdownCanvas, {
-      duration: Number(form.duration.value) * 1000 * 60 || 0,
+      duration: _duration || 0,
       elapsedTime: Number(form.elapsedTime.value) || 0,
       throttle: form.throttle.value ? Number(form.throttle.value) : void 0,
       captionText: void 0
     }, updateOnTimer);
 
-    setFormDefaults(countdown.options);
 
-    const duration = Number(form.duration.value);
+
+    const duration = _duration;
     const elapsed = Number(form.elapsedTime.value);
     const percentage = normalise(duration - elapsed, 0, duration) * 100 || 0;
 
